@@ -1,0 +1,69 @@
+//Написать рекурсивную функцию для вычисления факториала натурального числа n.
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static long factorial (int naturalNumber){
+       
+		    if (naturalNumber==1)
+		    return 1;
+		    else
+		    return naturalNumber*factorial(naturalNumber-1);
+        
+    }
+    
+    public static void main(String[] args) {
+      
+		 Scanner sc = new Scanner(System.in);
+		int naturalNumber = sc.nextInt ();
+			if (naturalNumber>=0) 
+				System.out.println(factorial(naturalNumber));
+      
+			else 
+				System.out.println("Введите натуральное число. Введенное число не является натуральным.");
+	}
+}
+
+
+/*Реализовать функцию нахождения минимума:
+1. Из трёх целых чисел
+2. Из четырёх целых чисел
+*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+  
+    public static int min(int numberOne, int numberTwo) {
+      if (numberOne<numberTwo)
+      return numberOne;
+      else return numberTwo;
+    }
+    
+    public static int min(int numberOne, int numberTwo, int numberThree) {
+      return min(min(numberOne,numberTwo),numberThree);
+    }
+    
+    public static int min(int numberOne, int numberTwo, int numberThree, int numberFour) {
+      return min(min(numberOne,numberTwo), min(numberThree,numberFour));
+    }
+    
+    public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in);
+      int numberOne = sc.nextInt ();
+      int numberTwo = sc.nextInt ();
+      int numberThree = sc.nextInt ();
+      int numberFour = sc.nextInt ();
+      
+      System.out.println("Первое число - " +numberOne);
+      System.out.println("Второе число - " +numberTwo);
+      System.out.println("Третье число - " +numberThree);
+      System.out.println("Четвертое число - " +numberFour);
+      System.out.println("Минимальное из трех чисел - " +min(numberOne,numberTwo,numberThree));
+      System.out.println("Минимальное из четырех чисел - " +min(numberOne,numberTwo,numberThree,numberFour));
+      
+  }
+}
