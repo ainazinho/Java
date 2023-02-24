@@ -1,0 +1,271 @@
+/* Известны площади круга и квадрата. Определить:
+1. уместится ли круг в квадрате?
+2. уместится ли квадрат в круге?
+*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in);
+      
+      double circleArea = sc.nextDouble ();
+      double squareArea = sc.nextDouble ();
+      
+      double circleDiameter = (Math.sqrt(circleArea/Math.PI))*2;
+      double squareSide = Math.sqrt(squareArea);
+      double squareDiagonal = squareSide*Math.sqrt(2); 
+      
+		if ((circleArea>0)&&(squareArea>0)) {
+			if (squareSide>=circleDiameter) {
+				System.out.println("Круг уместится в квадрате");
+			}
+			else {
+				System.out.println("Круг не уместится в квадрате");
+			}
+				if (circleDiameter>=squareDiagonal) {
+					System.out.println("Квадрат уместится в круге");
+				}
+				else {
+					System.out.println("Квадрат не уместится в круге");
+				}
+          
+		}
+		else {
+			System.out.println("Введены некорректные значения"); 
+		}
+	}
+}
+
+
+
+/* Известен вес боксера. Вес может быть отнесен к одной из категорий:
+1. легкий вес - до 60 кг 
+2. средний вес - до 75 кг 
+3. тяжелый вес - до 91 кг 
+4. супертяжелый вес - с 91 кг
+Определить в какой категории будет выступать боксер
+*/
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in);
+      
+      double boxerWeight = sc.nextDouble ();
+      
+		if (boxerWeight>0) {
+			if (boxerWeight<75) {
+				if (boxerWeight<60) {
+					System.out.println("Легкий вес");
+				}
+				else {
+					System.out.println("Средний вес");
+				}
+			}
+			else {
+				if (boxerWeight<91) {
+					System.out.println("Тяжелый вес");
+				}
+				else {
+				System.out.println("Супертяжелый вес");
+				}
+			}
+		}
+		else {
+			System.out.println("Вес указан некорректно");
+		}
+    }
+}
+  
+  
+  
+/* Дано  двузначное число.Определить:
+1. Является ли сумма его цифр двузначным числом
+2. Больше ли самого числа сумма его цифр
+*/
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int number = sc.nextInt ();
+    
+		int d = Math.abs(number/10); // десятичная цифра
+		int e = Math.abs(number%10); // единичная цифра
+    
+		int sumOfDigits = d+e;
+    
+			if (((number>=10) && (number<100)) || ((number<=-10) && (number>-100))){
+				if ((sumOfDigits>=10) && (sumOfDigits<100)) {
+					System.out.printf("1.Сумма цифр числа %d является двузначным\n", number);
+				}
+				else {
+					System.out.printf("1.Сумма цифр числа %d не является двузначным\n", number);
+				}
+				if (number<sumOfDigits) {
+					System.out.printf("2.Сумма цифр числа %d больше самого числа\n", number);
+				}
+				else {
+					System.out.printf("2.Сумма цифр числа %d меньше самого числа\n", number);
+				}
+			}
+		else {
+			System.out.printf("Число %d не является двузначным. Введите двузначное число.\n", number);
+		}
+    
+	}
+}
+
+
+
+// Даны радиуc круга и сторона квадрата. У какой фигуры площадь больше?
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		double circleRadius = sc.nextDouble ();
+		double squareSide = sc.nextDouble ();
+      
+		double circleArea = Math.PI*Math.pow(circleRadius,2);
+		double squareArea = Math.pow(squareSide,2);
+      
+			if (circleRadius > 0 && squareSide > 0) {
+			  if (circleArea != squareArea) {
+				  if (circleArea > squareArea) {
+					  System.out.println("Площадь круга больше площади квадрата");
+				  }
+				  else {
+					  System.out.println("Площадь квадрата больше площади круга");
+				  }
+			  }
+			  else {
+				  System.out.println("Площади квадрата и круга равны");
+			  }
+			}
+			else {
+			  System.out.println("Заданы некорректные значения");
+			}  
+      
+    }
+}
+
+
+
+/* Даны три вещественных числа a,b,c. Проверить:
+1. выполняется неравенство a<b<c
+2. выполняется неравенство c<a<b
+*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in);
+      
+     double a = sc.nextDouble ();
+     double b = sc.nextDouble ();
+     double c = sc.nextDouble ();
+     
+		System.out.println("Число a = " +a);
+		System.out.println("Число b = " +b);
+		System.out.println("Число c = " +c);
+     
+		if ((a<b) && (b<c)) {
+			System.out.printf("Неравенство a<b<c выполняется\n");
+       
+		}
+		else {
+			System.out.printf("Неравенство a<b<c не выполняется\n");
+		}
+     
+		if ((c<a) && (a<b)) {
+			System.out.printf("Неравенство c<a<b выполняется\n");
+       
+		}
+		else {
+			System.out.printf("Неравенство c<a<b не выполняется\n");
+		}
+     
+    }
+} 
+
+
+
+/*Даны два числа. Если квадратный корень из второго числа меньше первого числа, 
+то увеличить второе число в пять раз.*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in); 
+      double numberOne = sc.nextInt ();
+      double numberTwo = sc.nextInt ();
+      
+		if	(numberTwo >= 0) {
+			if (numberOne>Math.sqrt(numberTwo)) {
+				System.out.println(numberTwo*5);
+			}
+			/*else {
+			  System.out.println("Условие не выполняется");
+			}*/
+		}
+			/*else {
+				System.out.println("Квадратный корень из отрицательного числа не вычисляется.Второе число должно быть положительным");
+			}*/
+	
+		
+	}
+}
+
+
+
+/* Определить словсеный результат игры (выигрыш, проигрыш, ничья),
+если за выигрыш дается 3 очка, за проигрыш-0, за ничью-1.
+*/
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int point = sc.nextInt ();
+      
+			switch (point) {
+				case 0:
+				  System.out.println("Проигрыш");
+				break;
+				case 1:
+				  System.out.println("Ничья");
+				break;
+				case 3:
+				  System.out.println("Выигырш");
+				break;
+				default:
+				  System.out.println("Введено некорректное число.");
+				  System.out.println("Воспользуйтесь подсказкой:");
+				  System.out.println("Проигрыш - 0");
+				  System.out.println("Ничья - 1");
+				  System.out.println("Выигрыш - 3");
+			}
+	}
+}
