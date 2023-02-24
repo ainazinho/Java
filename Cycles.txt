@@ -1,0 +1,263 @@
+/* Найти сумму всех целых чисел от a до b 
+(значения a и b вводятся с клавиатуры; b>=a)*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt ();
+		int b = sc.nextInt ();
+		int sum = 0;
+			if (b >= a){
+				for (int i = a; i <= b; i++) {
+				sum=sum + i;
+			}
+				System.out.println("Сумма диапазона равна " + sum);
+			}
+			else {
+				System.out.println("Диапазон указан некорректно");
+			}
+	}
+}
+
+
+
+/* Дана непустая последовательность целых чисел, оканчивающаяся нулем. Найти:
+1. сумму всех чисел последовательности;
+2. количество всех чисел последовательности*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+      
+        int sum = 0;
+      
+        int sequenceOfNumbers = sc.nextInt();
+      
+        int count = 0;
+      
+		while (sequenceOfNumbers != 0) {
+			sum = sum + sequenceOfNumbers;
+			count++;
+			sequenceOfNumbers = sc.nextInt();
+		}
+      
+		System.out.println("Сумма всех чисел последовательности равна " + sum);
+		System.out.println("Количество всех чисел последовательности равно " + count);
+	}
+}
+
+
+
+/* Дано натуральное число. 
+Определить сколько раз в нем встречается последняя цифра*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int naturalNumber = sc.nextInt ();
+      
+		System.out.println("Введенное число " + naturalNumber);
+      
+		int countOfEndingNumber = 0;
+      
+		naturalNumber = Math.abs(naturalNumber);
+      
+		int endingNumber = naturalNumber%10;
+      
+		while (naturalNumber != 0) {
+			int ending = naturalNumber%10;
+			if (ending == endingNumber) {
+			countOfEndingNumber++;
+			}
+			naturalNumber = naturalNumber/10;
+		}
+      
+		System.out.printf("Цифра %d встречается в нем %d раз(а)", endingNumber, countOfEndingNumber);
+	}
+}
+
+
+
+/*Дано натуральное число. Определить количество четных цифр в нем*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int naturalNumber = sc.nextInt ();
+      
+		System.out.println("Введенное число " + naturalNumber);
+      
+		int countOfEvenNumber = 0;
+      
+		naturalNumber = Math.abs(naturalNumber);
+      
+		while (naturalNumber != 0) {
+			int evenNumber = naturalNumber%2;
+			if (evenNumber==0) {
+			countOfEvenNumber++;
+			}
+			naturalNumber = naturalNumber/10;
+		}
+      
+		System.out.print("Количество четных циф в нем " + countOfEvenNumber + " штук(и)");
+	}
+}
+
+
+
+/*Дано натуральное число. Определить сумму его цифр, больших пяти*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int naturalNumber = sc.nextInt ();
+      
+		System.out.println("Введенное число " + naturalNumber);
+      
+		int sum = 0;
+      
+		naturalNumber = Math.abs(naturalNumber);
+      
+		while (naturalNumber != 0) {
+			int evenNumber = naturalNumber%10;
+			if (evenNumber > 5) {
+				sum=sum + evenNumber;
+			}
+			naturalNumber = naturalNumber/10;
+		}
+      
+		System.out.println("Сумма цифр больше 5 равна " + sum);
+	}
+}
+
+
+
+/*Дано натуральное число. 
+Определить сколько раз в нем встречаются цифры 0 и 5 (всего)*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int naturalNumber = sc.nextInt ();
+      
+		System.out.println("Введенное число " + naturalNumber);
+      
+		int countOfFiveAndZero = 0;
+      
+		while (naturalNumber != 0) {
+			int ending = naturalNumber%10;
+			if (ending == 0 || ending == 5) {
+				countOfFiveAndZero++;
+			}
+			naturalNumber = naturalNumber/10;
+		}
+      
+		System.out.println("Количество нулей и пятерок в нем равно " + countOfFiveAndZero);
+	}
+}
+
+
+
+/*Имеется фрагмент программы в виде оператора цикла с параметром, обеспечивающий
+вывод на экран "столбиком" всех целых чисел от 10 до 30. Оформить этот фрагмент в виде:
+1. оператора цикла с предусловием;
+2. оператора цикла с постусловием.*/
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+    
+		int i = 10;
+    
+		/*while (i<=30) {
+			System.out.println(i);
+			i++;
+		}  
+		*/
+    
+		do {
+			System.out.println(i);
+			i++;
+		}
+		while (i<=30);
+	}
+}
+
+
+
+/*Найти максимальное из натуральных чисел, не превышающих 5000, 
+которое нацело делится на 39.*/
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+     
+		/*int i = 5000;
+     
+		while (i>0) {
+			if(i%39 == 0) {
+				System.out.println(i);
+				break;
+			}
+			i--;
+		}
+		*/
+		
+		for (int i = 5000; i>0; i--) {
+			if(i%39 == 0) {
+				System.out.println(i);
+				break;
+			}
+		}
+	}
+}
+
+
+
+/*Составить программу вывода любого числа любое заданное число раз.*/
+
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      
+		Scanner sc = new Scanner(System.in);
+      
+		int number = sc.nextInt (); /* введенное число*/
+		int n = sc.nextInt (); /*количество повторений*/
+    
+			for (int i = 1; i <= n; i++ ) {
+				System.out.println(number);
+			}
+    }
+}
+
